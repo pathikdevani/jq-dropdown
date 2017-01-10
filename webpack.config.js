@@ -15,14 +15,11 @@ let PRODUCTION = process.env.NODE_ENV === 'prod';
 let plugins = PRODUCTION
     ? [
         new webpack.optimize.UglifyJsPlugin(),
-        new CopyWebpackPlugin([
-            //static folder
-            {
-                from: "./app/static",
-                to: "./static" //to dist folder
-            }
-        ])
-    ] : [];
+    ] : [
+        new HTMLWebpackPlugin({
+            template: './demo/index.html'
+        }),
+    ];
 
 
 //add default data
@@ -35,19 +32,16 @@ plugins.push(
 
 //add template file
 plugins.push(
-    new HTMLWebpackPlugin({
-        template: './app/index.html'
-    }),
-    new ExtractTextPlugin("app.css")
+    new ExtractTextPlugin("jq.select.min.css")
 );
 
 
 let entry = PRODUCTION ?
     [
-        './app/index.js' //startup file of application
+        './src/plugin.js' //startup file of application
     ] :
     [
-        './app/index.js', //startup file of application
+        './demo/index.js', //startup file of application
         'webpack-dev-server/client?http://localhost:8080'
     ];
 
@@ -57,9 +51,9 @@ module.exports = {
     plugins: plugins,
     entry: entry,
     output: {
-        path: PRODUCTION ? path.join(__dirname, 'dist') : path.join(__dirname, 'app'),
+        path: PRODUCTION ? path.join(__dirname, 'dist') : path.join(__dirname, 'demo'),
         publicPath: '',
-        filename: PRODUCTION ? '[name].[hash:12].min.js' : 'bundle.js'
+        filename: "jq.select.min.js"
     },
 
 
@@ -91,7 +85,7 @@ module.exports = {
             //sass loader
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader", 'resolve-url-loader', "sass-loader?sourceMap&sourceMapContents")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!resolve-url-loader!sass-loader?sourceMap&sourceMapContents")
             },
 
             //font loader

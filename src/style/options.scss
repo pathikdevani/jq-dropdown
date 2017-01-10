@@ -1,0 +1,57 @@
+$options-max-height : 250px;
+
+.jq-options {
+  width: 100px;
+  position: absolute;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: $border;
+  margin-top: 3px;
+
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+
+  > .jq-options-container {
+    max-height: $options-max-height;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: auto;
+
+    list-style-type: none;
+    margin: 0;
+
+    $item-padding-tb: 7px;
+    $item-padding-lr: 13px;
+
+    $title-padding-tb: 3px;
+    $title-padding-lr: 7px;
+
+    > .jq-options-item {
+      height: auto;
+      width: calc(100% - #{$item-padding-lr*2});
+      padding: $item-padding-tb $item-padding-lr;
+    }
+
+    > .jq-options-title {
+      height: auto;
+      width: calc(100% - #{$title-padding-lr*2});
+      padding: $title-padding-tb $title-padding-lr;
+    }
+
+    > .jq-options-one-line {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.jq-options-open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  display: block !important;
+}
+
+

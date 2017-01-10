@@ -1,0 +1,46 @@
+$input-height: 35px;
+$handle-width: 30px;
+$border-radius: 1px;
+
+
+.jq-select {
+  display: inline-block;
+  width: 100%;
+  height: $input-height;
+  line-height: $input-height - 2px;
+  border: $border;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  overflow: hidden;
+  cursor: pointer;
+
+  > .jq-select-container {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    > .jq-select-item {
+      width: calc(100% - #{$handle-width});
+      display: inline-block;
+      float: left;
+      height: 100%;
+      text-indent: 8px;
+      border-right: $border;
+    }
+
+    > .jq-select-one-line {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    > .jq-select-handle {
+      display: inline-block;
+      float: left;
+      height: 100%;
+      width: $handle-width;
+      background: yellow;
+    }
+  }
+}

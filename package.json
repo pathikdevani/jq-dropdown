@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "jQuery Dropdown",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node dev-server.js",
+    "dev": "cross-env NODE_ENV=dev node dev.server.js",
     "build": "rimraf dist && cross-env NODE_ENV=prod webpack",
     "http": "http-server ./dist",
     "build-http": "rimraf dist && cross-env NODE_ENV=prod webpack & http-server ./dist"

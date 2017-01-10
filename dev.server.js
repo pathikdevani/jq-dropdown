@@ -9,7 +9,7 @@ let compiler = webpack(config);
 let server = new WebpackDevServer(compiler, {
     inline: true,
     progress: true,
-    contentBase: "./app",
+    contentBase: "./demo",
     filename: config.output.filename,
     publicPath: config.output.publicPath,
     stats: {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../dist/jq.select.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <select class="dropdown">
+            <option>test</option>
+        </select>
+    </div>
+</div>
+<style>
+    .container {
+        width: 500px;
+        height: 500px;
+    }
+
+    .box {
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 400px;
+        height: 400px;
+    }
+</style>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="../dist/jq.select.min.js"></script>
+<script>
+    var $input = $(".dropdown");
+    $input.jqSelect({
+        "data": "qwe"
+    });
+</script>
+</body>
+</html>

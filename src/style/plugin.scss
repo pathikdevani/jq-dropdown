@@ -1,0 +1,15 @@
+@import "var";
+@import "select";
+@import "options";
+
+//hide original element
+.jq-select-element-hide {
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 0 !important;
+  opacity: 0;
+}
